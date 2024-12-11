@@ -1,9 +1,11 @@
 import random
 win=0
 lost=0
+count=0
 def play_Game():
     
-    global win,lost
+    global win,lost,count
+    count+=1
     
     attempt=5
     list=["red","blue","white","black","green","yellow","purple","pink","brown"]
@@ -32,37 +34,32 @@ def play_Game():
                     print("The color was:-",select)
                     lost+=1
                     break
-    
+
+    choice2 = int(input("Enter 1 to see scoreboard\n2 to play again\n3 to exit:-"))
+    if(choice2==1):
+        print("Number of times winned:-",win)
+        print("number of times lost:-", lost)
+        print("Number of times game played",count)
+
+    elif(choice2==2):
+        play_Game()        
+
+    elif(choice==3):
+        print("You exited the game")
+           
+
+    else:
+        ("Enter correct number:-")
+        
     return
 
 if __name__=="__main__":
-    count=0
+    
     print("Welcome to the color game")
     print("Please choose from given option")
     choice = int(input("Enter 1 to play \nEnter 2 to exit :-"))
-    while (choice==1 ):
-        count+=1
+    if(choice==1 ):
         play_Game()
-        choice2 = int(input("Enter 1 to see scoreboard\n2 to play again\n3 to exit:-"))
-        if(choice2==1):
-            print("Number of times winned:-",win)
-            print("number of times lost:-", lost)
-            print("Number of times game played",count)
-            break
-
-        elif(choice==3):
-            print("You exited the game")
-            break
-
-        else:
-            ("Enter correct number:-")
-        
-        while(choice2==2):
-            play_Game()
-            choice2 = int(input("Enter 1 to see scoreboard\n2 to play again\n3 to exit:-"))
-
-            count+=1
-            break
             
 
     else:
